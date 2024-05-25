@@ -79,7 +79,7 @@ class App extends Component {
         <img src={this.state.imgSrc} id="pic2" alt="retard" height="400"width="400"></img>
         <button onClick={this.changeImage}>CHANGE</button>
         <div>
-        <h1>DO u got back pain? Anterior Pelvic Tilt PERHAPS? Do this 3 exercise!</h1>
+        <h1>DO u got back pain BLAKE? Anterior Pelvic Tilt PERHAPS? Do this 3 exercise!</h1>
         <button onClick={this.cyclePose}>EEE</button>
         <img src={this.state.imgSrc2} alt="fku" height="400"width="400"></img>
         
