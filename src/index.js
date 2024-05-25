@@ -8,6 +8,7 @@ import wik from './img/wik.png';
 import pose1 from './img/pose1.png';
 import pose2 from './img/pose2.png';
 import pose3 from './img/pose3.png';
+//import bg1 from './img/bg1.jpeg';
 
 let i=0;
 
@@ -16,9 +17,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSrc: wik,
+      imgSrc: nft,
       imgSrc2: pose1,
-      i:0
+      i:0,
+      headerContent: "the kid",
+      animate: false
     }
     
   }
@@ -28,11 +31,13 @@ class App extends Component {
     if(this.state.imgSrc == wik){
       this.setState({
         imgSrc: nft,
+        headerContent: "the kid"
       });
     }
     else{
       this.setState({
         imgSrc: wik,
+        headerContent: "THE MAN"
       });
     }
   }
@@ -61,7 +66,6 @@ class App extends Component {
             imgSrc2: pose3,
             i:0
           });
-          
           break;
       default:
         this.setState({
@@ -69,19 +73,50 @@ class App extends Component {
           i:0
         });
     }
-    console.log("img Src = " + i);
+    console.log("img Src = " + this.state.i);
   }
 
+  cyclePoseBW = () => {
+    switch(this.state.i) {
+      case 0:
+        this.setState({
+          imgSrc2: pose1,
+          i:2
+        });
+        break;
+      case 1:
+        this.setState({
+          imgSrc2: pose2,
+          i:0
+        });
+        break;
+        case 2:
+          this.setState({
+            imgSrc2: pose3,
+            i:1
+          });
+          break;
+      default:
+        this.setState({
+          imgSrc2: nft,
+          i:2
+        });
+    }
+    console.log("img Src = " + this.state.i);
+  }
+  
   render() {
     return (
       <div className="App">
         <article>
-        <img src={this.state.imgSrc} id="pic2" alt="retard" height="400"width="400"></img>
-        <button onClick={this.changeImage}>CHANGE</button>
+        <img src={this.state.imgSrc} id="pic2" alt="william struve" height="400"width="400"></img>
+        <h1>{this.state.headerContent}</h1>
+        <button onClick={this.changeImage}>Swap Avatar</button>
         <div>
         <h1>DO u got back pain BLAKE? Anterior Pelvic Tilt PERHAPS? Do this 3 exercise!</h1>
-        <button onClick={this.cyclePose}>EEE</button>
-        <img src={this.state.imgSrc2} alt="fku" height="400"width="400"></img>
+        <button class= "a" onClick={this.cyclePose}>EEE</button>
+        <img src={this.state.imgSrc2} alt="rolling man" height="400"width="400"></img>
+        <button class= "a" onClick={this.cyclePoseBW}>AAA</button>
         
         </div>
         </article>
@@ -94,6 +129,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    
   </React.StrictMode>
 );
 
